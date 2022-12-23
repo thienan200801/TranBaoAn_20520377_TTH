@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace TranBaoAn_20520377_TTH
 {
     public partial class DangNhap : Form
     {
+        
         String name;
         String cccd;
         DateTime dob;
@@ -32,6 +34,11 @@ namespace TranBaoAn_20520377_TTH
         public DangNhap()
         {
             InitializeComponent();
+            listView1.Columns.Add("Stt", 120);
+            listView1.Columns.Add("Mã Vé", 120);
+            listView1.Columns.Add("Nơi Đi", 120);
+            listView1.HideSelection = false;
+            listView1.Columns.Add("Nơi Đến", 120);
         }
 
         public void getInputAndCreateTicket()
@@ -62,9 +69,15 @@ namespace TranBaoAn_20520377_TTH
             number++;
             ticketCode = generateTicketCode();
 
+
             string[] row = { number.ToString(), ticketCode, noiDi,noiDen };
             var listViewItem = new ListViewItem(row);
             listView1.Items.Add(listViewItem);
+        }
+
+        public int findTicketWithId()
+        {
+            return 0;
         }
 
         
@@ -126,6 +139,64 @@ namespace TranBaoAn_20520377_TTH
         private void comboBox3_gaden_SelectedIndexChanged(object sender, EventArgs e)
         {
             noiDen = this.comboBox3_gaden.Text;
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedIndices.Count <= 0)
+            {
+                return;
+            }
+            int intselectedindex = listView1.SelectedIndices[0];
+            if (intselectedindex >= 0)
+            {
+                string ticketCode = listView1.SelectedItems[0].SubItems[1].Text;
+                MessageBox.Show(ticketCode);
+                
+
+                //do something
+                //MessageBox.Show(listView1.Items[intselectedindex].Text); 
+            }
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            String txt_Search = ticketCode;
+            if (txt_Search != "")
+            {
+                for (int i = listView1.Items.Count - 1; i >= 0; i--)
+                {
+                    var item = listView1.Items[i];
+                    try
+                    {
+                        if (item.SubItems[1].Text == txt_Search)
+                        {
+
+                            listView1.Items.Remove(item);
+
+                        }
+                        else
+                        {
+                            item.BackColor = SystemColors.Highlight;
+                            item.ForeColor = SystemColors.HighlightText;
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+
+                }
+                if (listView1.SelectedItems.Count == 1)
+                {
+                    listView1.Focus();
+                }
+            }
+    }
+
+        private void textBox4_ticketcode_TextChanged(object sender, EventArgs e)
+        {
+            ticketCode = textBox4_ticketcode.Text;
         }
     }
 }

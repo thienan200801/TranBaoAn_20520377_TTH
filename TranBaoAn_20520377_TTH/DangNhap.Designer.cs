@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1_dob = new System.Windows.Forms.DateTimePicker();
             this.textBox3_adress = new System.Windows.Forms.TextBox();
@@ -269,6 +269,7 @@
             this.textBox4_ticketcode.Name = "textBox4_ticketcode";
             this.textBox4_ticketcode.Size = new System.Drawing.Size(288, 30);
             this.textBox4_ticketcode.TabIndex = 17;
+            this.textBox4_ticketcode.TextChanged += new System.EventHandler(this.textBox4_ticketcode_TextChanged);
             // 
             // label10
             // 
@@ -363,6 +364,7 @@
             this.DeleteBtn.TabIndex = 0;
             this.DeleteBtn.Text = "Xóa";
             this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // listView1
             // 
@@ -373,13 +375,14 @@
             this.GaDen});
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem3});
             this.listView1.Location = new System.Drawing.Point(12, 336);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(924, 223);
             this.listView1.TabIndex = 21;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // STT
             // 

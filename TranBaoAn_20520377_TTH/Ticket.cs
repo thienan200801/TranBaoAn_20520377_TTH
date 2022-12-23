@@ -8,6 +8,7 @@ namespace TranBaoAn_20520377_TTH
 {
     internal class Ticket
     {
+        public int index;
         public string name;
         public string cccd;
         public string address;
