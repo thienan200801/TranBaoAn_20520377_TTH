@@ -26,15 +26,27 @@ namespace TranBaoAn_20520377_TTH
         int number = 0;
         int price;
 
+        List<Ticket> tickets = new List<Ticket>();
+
 
         public DangNhap()
         {
             InitializeComponent();
         }
 
-        public void getInput()
+        public void getInputAndCreateTicket()
         {
-            
+            Ticket ticket = new Ticket();
+            ticket.name = name;
+            ticket.address = address;
+            ticket.gaden = noiDen;
+            ticket.gadi = noiDi;
+            ticket.soghengoi = Int32.Parse(soGheNgoi);
+            ticket.dob = dob;
+            ticket.cccd = cccd;
+            ticket.mave = generateTicketCode();
+            tickets.Add(ticket);
+
         }
 
         public string generateTicketCode()
@@ -54,6 +66,8 @@ namespace TranBaoAn_20520377_TTH
             var listViewItem = new ListViewItem(row);
             listView1.Items.Add(listViewItem);
         }
+
+        
 
         private void textBox1_hoten_TextChanged(object sender, EventArgs e)
         {

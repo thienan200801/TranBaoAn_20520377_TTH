@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1_dob = new System.Windows.Forms.DateTimePicker();
             this.textBox3_adress = new System.Windows.Forms.TextBox();
             this.radioButton2_woman = new System.Windows.Forms.RadioButton();
             this.radioButton1_men = new System.Windows.Forms.RadioButton();
@@ -61,7 +62,6 @@
             this.MaVe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GaDi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GaDen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dateTimePicker1_dob = new System.Windows.Forms.DateTimePicker();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -88,6 +88,14 @@
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin người mua";
+            // 
+            // dateTimePicker1_dob
+            // 
+            this.dateTimePicker1_dob.Location = new System.Drawing.Point(131, 100);
+            this.dateTimePicker1_dob.Name = "dateTimePicker1_dob";
+            this.dateTimePicker1_dob.Size = new System.Drawing.Size(283, 30);
+            this.dateTimePicker1_dob.TabIndex = 12;
+            this.dateTimePicker1_dob.ValueChanged += new System.EventHandler(this.dateTimePicker1_dob_ValueChanged);
             // 
             // textBox3_adress
             // 
@@ -215,12 +223,16 @@
             // 
             this.comboBox4_soghengoi.FormattingEnabled = true;
             this.comboBox4_soghengoi.Items.AddRange(new object[] {
-            "A1",
-            "A2",
-            "A3",
-            "A4",
-            "A5",
-            "A6"});
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
             this.comboBox4_soghengoi.Location = new System.Drawing.Point(127, 138);
             this.comboBox4_soghengoi.Name = "comboBox4_soghengoi";
             this.comboBox4_soghengoi.Size = new System.Drawing.Size(288, 30);
@@ -230,10 +242,8 @@
             // 
             this.comboBox3_gaden.FormattingEnabled = true;
             this.comboBox3_gaden.Items.AddRange(new object[] {
-            "Ga A",
-            "Ga B",
-            "Ga C",
-            "Ga D"});
+            "Hà Nội",
+            "Đà Nẵng"});
             this.comboBox3_gaden.Location = new System.Drawing.Point(127, 97);
             this.comboBox3_gaden.Name = "comboBox3_gaden";
             this.comboBox3_gaden.Size = new System.Drawing.Size(288, 30);
@@ -243,10 +253,8 @@
             // 
             this.comboBox2_gadi.FormattingEnabled = true;
             this.comboBox2_gadi.Items.AddRange(new object[] {
-            "Ga 1",
-            "Ga 2",
-            "Ga 3",
-            "Ga 4"});
+            "Hồ Chí Minh",
+            "Biên Hòa"});
             this.comboBox2_gadi.Location = new System.Drawing.Point(127, 59);
             this.comboBox2_gadi.Name = "comboBox2_gadi";
             this.comboBox2_gadi.Size = new System.Drawing.Size(288, 30);
@@ -362,7 +370,7 @@
             this.GaDen});
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem6});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(12, 336);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(924, 223);
@@ -389,14 +397,6 @@
             // 
             this.GaDen.Text = "Ga đến";
             this.GaDen.Width = 200;
-            // 
-            // dateTimePicker1_dob
-            // 
-            this.dateTimePicker1_dob.Location = new System.Drawing.Point(131, 100);
-            this.dateTimePicker1_dob.Name = "dateTimePicker1_dob";
-            this.dateTimePicker1_dob.Size = new System.Drawing.Size(283, 30);
-            this.dateTimePicker1_dob.TabIndex = 12;
-            this.dateTimePicker1_dob.ValueChanged += new System.EventHandler(this.dateTimePicker1_dob_ValueChanged);
             // 
             // DangNhap
             // 
