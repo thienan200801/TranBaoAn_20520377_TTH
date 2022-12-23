@@ -117,7 +117,7 @@ namespace TranBaoAn_20520377_TTH
             }
             if (noiDi=="Biên Hoà")
             {
-                price = soGheNgoi * 25000;
+                price = soGheNgoi * 250000;
             }
             this.label_price.Text = price.ToString();
         }
@@ -196,7 +196,8 @@ namespace TranBaoAn_20520377_TTH
                 }
             }
         }
-        private void DeleteBtn_Click(object sender, EventArgs e)
+
+        public void DeleteItem()
         {
             String txt_Search = ticketCode;
             if (txt_Search != "")
@@ -214,8 +215,7 @@ namespace TranBaoAn_20520377_TTH
                         }
                         else
                         {
-                            item.BackColor = SystemColors.Highlight;
-                            item.ForeColor = SystemColors.HighlightText;
+
                         }
                     }
                     catch
@@ -224,12 +224,31 @@ namespace TranBaoAn_20520377_TTH
                     }
 
                 }
-                if (listView1.SelectedItems.Count == 1)
-                {
-                    listView1.Focus();
-                }
             }
-    }
+        }
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            Ticket findTicket = tickets.Find(x => x.mave.Contains(ticketCode));
+            if (findTicket != null)
+            {
+                this.textBox1_hoten.Text = findTicket.name;
+                this.textBox2_cccd.Text = findTicket.cccd;
+                this.textBox3_adress.Text = findTicket.address;
+                this.label_price.Text = findTicket.price;
+                //this.dateTimePicker1_dob.Value = findTicket.dob;
+                this.textBox4_ticketcode.Text = findTicket.mave;
+                this.comboBox2_gadi.Text = findTicket.gadi;
+                this.comboBox3_gaden.Text = findTicket.gaden;
+            }
+            else
+            {
+                MessageBox.Show("Mã Vé Không Tồn Tại");
+            }
+            DeleteItem();
+
+
+        }
+    
 
         private void textBox4_ticketcode_TextChanged(object sender, EventArgs e)
         {
@@ -253,7 +272,28 @@ namespace TranBaoAn_20520377_TTH
             }
             else
             {
-                MessageBox.Show("Không tìm thấy vé");
+                MessageBox.Show("Mã Vé Không Tồn Tại");
+            }
+        }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            Ticket findTicket = tickets.Find(x => x.mave.Contains(ticketCode));
+            if (findTicket != null)
+            {
+                this.textBox1_hoten.Text = findTicket.name;
+                this.textBox2_cccd.Text = findTicket.cccd;
+                this.textBox3_adress.Text = findTicket.address;
+                this.label_price.Text = findTicket.price;
+                //this.dateTimePicker1_dob.Value = findTicket.dob;
+                this.textBox4_ticketcode.Text = findTicket.mave;
+                this.comboBox2_gadi.Text = findTicket.gadi;
+                this.comboBox3_gaden.Text = findTicket.gaden;
+                FileterRecordByTicketCode();
+            }
+            else
+            {
+                MessageBox.Show("Mã Vé Không Tồn Tại");
             }
         }
     }
