@@ -41,20 +41,7 @@ namespace TranBaoAn_20520377_TTH
             listView1.Columns.Add("Nơi Đến", 120);
         }
 
-        public void getInputAndCreateTicket()
-        {
-            Ticket ticket = new Ticket();
-            ticket.name = name;
-            ticket.address = address;
-            ticket.gaden = noiDen;
-            ticket.gadi = noiDi;
-            ticket.soghengoi = soGheNgoi;
-            ticket.dob = dob;
-            ticket.cccd = cccd;
-            ticket.mave = generateTicketCode();
-            tickets.Add(ticket);
 
-        }
 
         public string generateTicketCode()
             
@@ -66,11 +53,21 @@ namespace TranBaoAn_20520377_TTH
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            Ticket ticket = new Ticket();
+            ticket.name = name;
+            ticket.address = address;
+            ticket.gaden = noiDen;
+            ticket.gadi = noiDi;
+            ticket.soghengoi = soGheNgoi;
+            ticket.dob = dob;
+            ticket.cccd = cccd;
+            ticket.mave = generateTicketCode();
+            ticket.price = label_price.Text;
+            tickets.Add(ticket);
+
             number++;
-            ticketCode = generateTicketCode();
 
-
-            string[] row = { number.ToString(), ticketCode, noiDi,noiDen };
+            string[] row = { number.ToString(), ticket.mave, noiDi,noiDen };
             var listViewItem = new ListViewItem(row);
             listView1.Items.Add(listViewItem);
         }
@@ -159,6 +156,46 @@ namespace TranBaoAn_20520377_TTH
             }
         }
 
+        private void findAndUpdate()
+        {
+
+        }
+
+        public void FileterRecordByTicketCode()
+        {
+            String txt_Search = ticketCode;
+            if (txt_Search != "")
+            {
+                for (int i = listView1.Items.Count - 1; i >= 0; i--)
+                {
+                    var item = listView1.Items[i];
+                    try
+                    {
+                        if (item.SubItems[1].Text == txt_Search)
+                        {
+                            item.BackColor = SystemColors.Highlight;
+                            item.ForeColor = SystemColors.HighlightText;
+
+                        }
+                        else
+                        {
+
+                            listView1.Items.Remove(item);
+
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+
+                }
+                if (listView1.SelectedItems.Count == 1)
+                {
+                    listView1.Focus();
+                }
+            }
+        }
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             String txt_Search = ticketCode;
@@ -197,6 +234,27 @@ namespace TranBaoAn_20520377_TTH
         private void textBox4_ticketcode_TextChanged(object sender, EventArgs e)
         {
             ticketCode = textBox4_ticketcode.Text;
+        }
+
+        private void ViewBtn_Click(object sender, EventArgs e)
+        {
+            Ticket findTicket = tickets.Find(x => x.mave.Contains(ticketCode));
+            if (findTicket != null)
+            {
+                this.textBox1_hoten.Text = findTicket.name;
+                this.textBox2_cccd.Text = findTicket.cccd;
+                this.textBox3_adress.Text = findTicket.address;
+                this.label_price.Text = findTicket.price;
+                //this.dateTimePicker1_dob.Value = findTicket.dob;
+                this.textBox4_ticketcode.Text = findTicket.mave;
+                this.comboBox2_gadi.Text = findTicket.gadi;
+                this.comboBox3_gaden.Text = findTicket.gaden;
+                FileterRecordByTicketCode();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy vé");
+            }
         }
     }
 }

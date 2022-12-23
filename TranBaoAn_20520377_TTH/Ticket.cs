@@ -18,7 +18,6 @@ namespace TranBaoAn_20520377_TTH
         public int soghengoi;
         public string price;
         public DateTime dob;
-        public string ticketcode;
        
         
     }

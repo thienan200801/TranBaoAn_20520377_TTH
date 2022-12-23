@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1_dob = new System.Windows.Forms.DateTimePicker();
             this.textBox3_adress = new System.Windows.Forms.TextBox();
@@ -335,6 +335,7 @@
             this.ViewBtn.TabIndex = 3;
             this.ViewBtn.Text = "Xem";
             this.ViewBtn.UseVisualStyleBackColor = true;
+            this.ViewBtn.Click += new System.EventHandler(this.ViewBtn_Click);
             // 
             // AddBtn
             // 
@@ -375,7 +376,7 @@
             this.GaDen});
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem4});
             this.listView1.Location = new System.Drawing.Point(12, 336);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(924, 223);
