@@ -119,13 +119,13 @@ namespace TranBaoAn_20520377_TTH
 
         private void comboBox2_gadi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            noiDi = this.GaDi.Text;
+            noiDi = this.comboBox2_gadi.Text;
             tinhGiaVe();
         }
 
         private void comboBox3_gaden_SelectedIndexChanged(object sender, EventArgs e)
         {
-            noiDen = this.GaDen.Text;
+            noiDen = this.comboBox3_gaden.Text;
         }
     }
 }
