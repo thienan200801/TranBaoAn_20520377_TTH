@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -261,6 +261,9 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Hồ Chí Minh",
+            "Biên Hòa"});
             this.comboBox2.Location = new System.Drawing.Point(127, 59);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(288, 30);
@@ -269,6 +272,9 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Hà Nội",
+            "Đà Nẵng"});
             this.comboBox3.Location = new System.Drawing.Point(127, 97);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(288, 30);
@@ -290,6 +296,7 @@
             this.label11.Size = new System.Drawing.Size(69, 22);
             this.label11.TabIndex = 21;
             this.label11.Text = "label11";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // panel1
             // 
@@ -348,7 +355,7 @@
             this.GaDen});
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem3});
             this.listView1.Location = new System.Drawing.Point(12, 336);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(924, 223);
