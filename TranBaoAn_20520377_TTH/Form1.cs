@@ -16,5 +16,29 @@ namespace TranBaoAn_20520377_TTH
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult d;
+            d = MessageBox.Show("Bạn muốn thoát khỏi chương trình?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (d == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Trim() != null && textBox2.Text.Trim() != null)
+            {
+                if (textBox1.Text == "admin" || textBox2.Text == "admin")
+                {
+                    DangNhap f = new DangNhap();
+                    f.ShowDialog();
+                }
+                else MessageBox.Show("Đăng nhập thất bại");
+            }
+            else MessageBox.Show("Sai định dạng");
+        }
     }
 }
