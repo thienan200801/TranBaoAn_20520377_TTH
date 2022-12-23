@@ -22,7 +22,7 @@ namespace TranBaoAn_20520377_TTH
         String ticketCode;
         String noiDen;
         String noiDi;
-        String soGheNgoi;
+        int soGheNgoi;
         int number = 0;
         int price;
 
@@ -41,7 +41,7 @@ namespace TranBaoAn_20520377_TTH
             ticket.address = address;
             ticket.gaden = noiDen;
             ticket.gadi = noiDi;
-            ticket.soghengoi = Int32.Parse(soGheNgoi);
+            ticket.soghengoi = soGheNgoi;
             ticket.dob = dob;
             ticket.cccd = cccd;
             ticket.mave = generateTicketCode();
@@ -96,6 +96,36 @@ namespace TranBaoAn_20520377_TTH
             women = this.radioButton2_woman.Checked;
             men = !women;
             this.radioButton2_woman.Checked = women;
+        }
+
+        private void tinhGiaVe()
+        {
+            
+            if (noiDi=="Hồ Chí Minh")
+            {
+                price = soGheNgoi * 300000;
+            }
+            if (noiDi=="Biên Hoà")
+            {
+                price = soGheNgoi * 25000;
+            }
+            this.label_price.Text = price.ToString();
+        }
+        private void comboBox4_soghengoi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            soGheNgoi = Int32.Parse(comboBox4_soghengoi.Text);
+            tinhGiaVe();
+        }
+
+        private void comboBox2_gadi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            noiDi = this.GaDi.Text;
+            tinhGiaVe();
+        }
+
+        private void comboBox3_gaden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            noiDen = this.GaDen.Text;
         }
     }
 }

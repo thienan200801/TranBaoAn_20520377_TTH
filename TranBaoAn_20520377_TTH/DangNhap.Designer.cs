@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1_dob = new System.Windows.Forms.DateTimePicker();
             this.textBox3_adress = new System.Windows.Forms.TextBox();
@@ -237,6 +237,7 @@
             this.comboBox4_soghengoi.Name = "comboBox4_soghengoi";
             this.comboBox4_soghengoi.Size = new System.Drawing.Size(288, 30);
             this.comboBox4_soghengoi.TabIndex = 20;
+            this.comboBox4_soghengoi.SelectedIndexChanged += new System.EventHandler(this.comboBox4_soghengoi_SelectedIndexChanged);
             // 
             // comboBox3_gaden
             // 
@@ -248,6 +249,7 @@
             this.comboBox3_gaden.Name = "comboBox3_gaden";
             this.comboBox3_gaden.Size = new System.Drawing.Size(288, 30);
             this.comboBox3_gaden.TabIndex = 19;
+            this.comboBox3_gaden.SelectedIndexChanged += new System.EventHandler(this.comboBox3_gaden_SelectedIndexChanged);
             // 
             // comboBox2_gadi
             // 
@@ -259,6 +261,7 @@
             this.comboBox2_gadi.Name = "comboBox2_gadi";
             this.comboBox2_gadi.Size = new System.Drawing.Size(288, 30);
             this.comboBox2_gadi.TabIndex = 18;
+            this.comboBox2_gadi.SelectedIndexChanged += new System.EventHandler(this.comboBox2_gadi_SelectedIndexChanged);
             // 
             // textBox4_ticketcode
             // 
@@ -370,7 +373,7 @@
             this.GaDen});
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.listView1.Location = new System.Drawing.Point(12, 336);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(924, 223);
